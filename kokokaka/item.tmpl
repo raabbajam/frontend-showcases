@@ -1,0 +1,22 @@
+
+  <div class="item">
+    <img src="{{item.url}}" alt="{{item.shortDescription}}">
+    <div class="label">
+      <h2>{{item.title}}</h2>
+      <h3>{{item.subtitle}}</h3>
+      <div class="detail toggle-hide">
+        <i class="toggle-detail">+</i>
+        <p class="hide">{{item.description}}</p>
+        <h4 class="hide">Credits</h4>
+        <div class="hide">
+          <ul>
+            <li>Client: {{item.person}}</li>
+            <li>Agency / Production : {{item.company}} / {{item.company2}}</li>
+            <li>Web Development: {{item.malename}}</li>
+          </ul>
+        </div>
+        <p class="hide link"><a href="{{item.url}}"><i class="link">Visit Site</i></a></p>
+        <p class="detail-links"><a href="javascript:void(0)">pin it</a><a href="javascript:void(0)">tweet</a></p>
+      </div>
+    </div>
+  </div>

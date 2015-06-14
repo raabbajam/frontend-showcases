@@ -1,0 +1,27 @@
+{
+  "name": "html",
+  "version": "0.0.0",
+  "authors": [
+    "Muhammad Abdul Jabbaar <raabbajam@gmail.com>"
+  ],
+  "description": "HTML playground, css, psd convert and so on.",
+  "main": "index.html",
+  "keywords": [
+    "html",
+    "css",
+    "psd",
+    "convert"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "hogan": "~3.0.2"
+  }
+}
