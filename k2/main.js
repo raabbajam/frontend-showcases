@@ -10,10 +10,12 @@ $(function () {
   var contentOverflow = $itemWrapperWidth - $contentWidth;
 
   $content
-    // logo handle
+    // content hover handle
     .on('mouseenter mouseleave', function () {
       $content.toggleClass('hovered');
     })
+
+    // logo handle
     .on('mouseenter mouseleave', '.first', toggleLogo)
 
     // scroll handle
