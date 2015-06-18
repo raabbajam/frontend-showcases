@@ -50,6 +50,9 @@ header li{
 }
 header a {
   line-height: 60px;
+  -webkit-transition: all 0.33s;
+  -o-transition: all 0.33s;
+  transition: all 0.33s;
 }
 .links {
   float: right;
@@ -58,12 +61,12 @@ header a {
 .links a {
   color: grey;
   padding: 20px 10px;
-  -webkit-transition: all 0.33s;
-  -o-transition: all 0.33s;
-  transition: all 0.33s;
 }
 .logo:hover a, .links li:hover a {
   color: white;
+}
+nav li:hover a{
+  color: grey;
 }
 .wrapper {
   margin-top: 60px;
@@ -71,6 +74,18 @@ header a {
 .slider {
   overflow: hidden;
   position: relative;
+}
+.slider .cursor {
+  -webkit-transform: scale(0);
+  -ms-transform: scale(0);
+  -o-transform: scale(0);
+  transform: scale(0);
+  -webkit-transition: transform 0.3s;
+  -o-transition: transform 0.3s;
+  transition: transform 0.3s;
+  z-index: 4;
+  font-size: 2em;
+  position: absolute;
 }
 .pagination {
   position: absolute;
@@ -115,9 +130,11 @@ header a {
   transition: all 0.5s;
 }
 .slides .slide {
+  cursor: none;
   display: inline-block;
 }
 .slides .display {
+  position: relative;
   height: 100vh;
   width: 100vw;
       -webkit-background-size: cover;
@@ -154,6 +171,10 @@ header a {
     font-size: 1.67em;
 }
 
+.slide {
+}
+.slide.active {
+}
 .slide-1 .display {
   background: url('https://placeholdit.imgix.net/~text?txtsize=160&bg=555555&txtclr=ffffff&txt=topla%21&w=1360&h=768&txttrack=0') no-repeat center center;
 }
@@ -162,4 +183,48 @@ header a {
 }
 .slide-3 .display {
   background: url('https://placeholdit.imgix.net/~text?txtsize=160&bg=111111&txtclr=ffffff&txt=TherrienCouture&w=1360&h=768&txttrack=0') no-repeat center center;
+}
+.overlay {
+    position: absolute;
+    z-index: 5;
+    background: black;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    -webkit-transition: all 0.5s 0.5s;
+    -o-transition: all 0.5s 0.5s;
+    transition: all 0.5s 0.5s;
+}
+.slide img {
+    position: absolute;
+    -webkit-transition: all 0.67s;
+    -o-transition: all 0.67s;
+    transition: all 0.67s;
+}
+.active .overlay {
+  opacity: 0;
+}
+.slide .topla-logo {
+    top: -100%;
+    left: 140px;
+    -webkit-transition-delay: 1s;
+    -o-transition-delay: 1s;
+    transition-delay: 1s;
+}
+.slide .topla-mobile {
+    bottom: -100%;
+    left: 440px;
+    -webkit-transition-delay: 1.45s;
+    -o-transition-delay: 1.45s;
+    transition-delay: 1.45s;
+}
+
+.active .topla-logo {
+    top: 170px;
+}
+.active .topla-mobile {
+    bottom: 0px;
+}
+
+img.topla-logo {
 }

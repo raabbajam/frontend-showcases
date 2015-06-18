@@ -4,23 +4,35 @@ $(function () {
   };
 
   var $content = $('.content');
-  var $contentWidth = $content.width()
-  var $itemWrapper = $('.item-wrapper')
-  var $itemWrapperWidth = $itemWrapper[0].scrollWidth;
-  var contentOverflow = $itemWrapperWidth - $contentWidth;
+  var $itemWrapper = $('.item-wrapper');
+  function init() {
 
-  $content
-    // content hover handle
-    .on('mouseenter mouseleave', function () {
-      $content.toggleClass('hovered');
-    })
+    var $contentWidth = $content.width();
+    var $itemWrapperWidth = $itemWrapper[0].scrollWidth;
+    var contentOverflow = $itemWrapperWidth - $contentWidth;
 
-    // logo handle
-    .on('mouseenter mouseleave', '.first', toggleLogo)
+    $content
+      // content hover handle
+      .on('mouseenter mouseleave', function () {
+        $content.toggleClass('hovered');
+      })
 
-    // scroll handle
-    .on('mousemove', function (e) {
-      var pos = e.pageX / $contentWidth;
-      $itemWrapper.scrollLeft(pos * contentOverflow);
+      // logo handle
+      .on('mouseenter mouseleave', '.first', toggleLogo)
+
+      // scroll handle
+      .on('mousemove', function (e) {
+        var pos = e.pageX / $contentWidth;
+        $itemWrapper.scrollLeft(pos * contentOverflow);
+      });
+  }
+
+
+  $.getJSON('./data/item.json', function (items) {
+    var items = items.map(function (item) {
+      return templates.item.render(item);
     });
+    $itemWrapper.html($itemWrapper.html().trim() + items.join(''));
+    init();
+  });
 });
