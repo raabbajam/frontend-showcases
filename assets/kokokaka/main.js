@@ -3,7 +3,13 @@ $(function() {
   var $content = $('.content');
   var $header = $('header');
   var $window = $(window);
+  var $main = $('.main');
   var scrollPosition = false;
+  var routes = {
+    '/project/:pid': viewProject
+  };
+  var router = Router(routes);
+
 
   // get data via ajax
   $.getJSON('./data.json', function (items) {
@@ -24,6 +30,10 @@ $(function() {
 
     // put it on content
     $content.html(html.join(''));
+    $('.item').each(function (i) {
+      $(this).data('item', i);
+    });
+    router.init();
   });
 
   // click handler
@@ -32,7 +42,9 @@ $(function() {
     .on('click', '.item', function () {
       // note scroll position
       scrollPosition = $window.scrollTop();
-      $(this).toggleClass('active');
+      var $this = $(this);
+      $this.toggleClass('active');
+      router.setRoute('project/' + $this.data('item'));
       toggle();
     })
 
@@ -40,8 +52,16 @@ $(function() {
     .on('click', '.active .toggle-detail', function () {
       var i = $(this);
       var detail = i.parents('.detail');
+      var item = i.parents('.item');
       detail.toggleClass('toggle-hide');
-      i.text(i.text() === '+' ? '-' : '+');
+      if (i.text() === '+') {
+        i.text('-');
+        router.setRoute('project/' + item.data('item') + '/detail');
+      } else {
+        i.text('+');
+        router.setRoute('project/' + item.data('item'));
+      }
+
       return false;
     });
 
@@ -71,7 +91,10 @@ $(function() {
   });
 
   function toggle() {
-    $('.main').toggleClass('active-content');
+    $main.toggleClass('active-content');
+    if (!$main.hasClass('active-content'))
+      router.setRoute('/');
+
   }
   function handleNavigation(dir) {
     var $item = $('.item.active');
@@ -91,6 +114,13 @@ $(function() {
     //   if dir is prev, get last
     if (!sibling.length)
       sibling = ao$item[dir === 'next' ? 'first' : 'last']();
+
+    router.setRoute('project/' + sibling.data('item'));
     return sibling;
   }
+
+  function viewProject(pid) {
+    $main.addClass('active-content');
+    $('.item').eq(pid).addClass('active');
+  };
 });
