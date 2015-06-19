@@ -16,5 +16,8 @@
     "hogan.js": "^3.0.2",
     "imgur": "^0.1.5",
     "request": "^2.57.0"
+  },
+  "devDependencies": {
+    "node-useref": "^0.3.12"
   }
 }

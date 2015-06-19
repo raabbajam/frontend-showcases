@@ -4,7 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <title>KOKO &middot; KAKA</title>
+  <!-- build:css main.min.css -->
   <link rel="stylesheet" href="main.css">
+  <!-- endbuild -->
 </head>
 
 <body>
@@ -133,12 +135,21 @@
       <i class="next">&gt;</i>
       <i class="close">&times;</i>
     </div>
-    <script src="../bower_components/jquery/dist/jquery.min.js" charset="utf-8"></script>
-    <script src="../bower_components/hogan/web/builds/3.0.2/hogan-3.0.2.min.js" charset="utf-8"></script>
-    <!-- // <script src="https://code.jquery.com/jquery-2.1.4.min.js" charset="utf-8"></script>
-    // <script src="//cdnjs.cloudflare.com/ajax/libs/hogan.js/3.0.2/hogan.js" charset="utf-8"></script> -->
-    <script src="./item.js" charset="utf-8"></script>
-    <script src="./main.js" charset="utf-8"></script>
+
+  <!-- build:js https://code.jquery.com/jquery-2.1.4.min.js -->
+  <script src="../../bower_components/jquery/dist/jquery.min.js" charset="utf-8"></script>
+  <!-- endbuild -->
+
+  <!-- build:js //cdnjs.cloudflare.com/ajax/libs/hogan.js/3.0.2/hogan.js -->
+  <script src="../../bower_components/hogan/web/builds/3.0.2/hogan-3.0.2.min.js" charset="utf-8"></script>
+  <!-- endbuild -->
+
+  <!-- build:js main.min.js -->
+  <script src="./item.js" charset="utf-8"></script>
+  <script src="./main.js" charset="utf-8"></script>
+  <!-- endbuild -->
+
+  
 </body>
 
 </html>
