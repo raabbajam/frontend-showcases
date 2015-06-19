@@ -25,5 +25,5 @@ build/Release
 node_modules
 bower_components
 .env
-dist/
+dists/
 images/ori/
