@@ -1,6 +1,7 @@
 $(function() {
 
   var $content = $('.content');
+  var $header = $('header');
   var $window = $(window);
   var scrollPosition = false;
 
@@ -62,10 +63,16 @@ $(function() {
       handleNavigation('prev');
     });
 
+  $window.on('focus', function () {
+    $header.toggleClass('active');
+    setTimeout(function(){
+      $header.toggleClass('active');
+    }, 100);
+  });
+
   function toggle() {
     $('.main').toggleClass('active-content');
   }
-
   function handleNavigation(dir) {
     var $item = $('.item.active');
     var sibling = getSibling($item, dir);

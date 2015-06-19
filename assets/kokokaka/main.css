@@ -93,7 +93,7 @@ header:before {
     z-index: 2;
     tab-index: 0;
 }
-header:hover, header:active {
+header.active, header:hover, header:active {
     transform: translateX(0);
 }
 
