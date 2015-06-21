@@ -33,7 +33,7 @@ $(function () {
         var pos = e.pageX / $contentWidth;
 
         // scroll to min - max content width;
-        $itemWrapper.animate({scrollLeft:pos * contentOverflow}, {queue:false, duration: 300, easing: 'easeInOutCirc'});
+        $itemWrapper.animate({scrollLeft:pos * contentOverflow}, {queue:false, duration: 0, easing: 'easeInOutCirc'});
       });
   }
 
